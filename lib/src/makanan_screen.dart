@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pizzahut_submission/src/detail_menu.dart';
 import 'package:pizzahut_submission/model/pizza.dart';
