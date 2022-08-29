@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizzahut_submission/detail_menu.dart';
+import 'package:pizzahut_submission/src/detail_menu.dart';
 import 'package:pizzahut_submission/model/pizza.dart';
 
 class AllMenu extends StatelessWidget {
@@ -10,6 +10,7 @@ class AllMenu extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('All Menu'),
+          backgroundColor: const Color.fromARGB(244, 255, 128, 49),
         ),
         body: LayoutBuilder(
           builder: (context, constraints) {
@@ -91,25 +92,52 @@ class AllMenuGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('Wisata Bandung'),
-          ),
-          body: LayoutBuilder(
-            builder: (context, constraints) {
-              if (constraints.maxWidth <= 600) {
-                return const AllMenuList();
-              } else if (constraints.maxWidth <= 1200) {
-                return const AllMenuGrid(gridCount: 4);
-              } else {
-                return const AllMenuGrid(gridCount: 6);
-              }
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: GridView.count(
+        crossAxisCount: gridCount,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+        children: PizzaHutList.map((pizza) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailMenu(pizza: pizza);
+              }));
             },
-          ),
-        );
-      },
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      pizza.gambar,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      pizza.nama,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
+                    child: Text(
+                      pizza.kategori,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }

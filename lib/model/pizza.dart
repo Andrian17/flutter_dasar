@@ -30,7 +30,7 @@ var PizzaHutList = [
       deskripsi:
           "Daging ayam dan sapi asap, daging sapi cincang, burger sapi, jamur, paprika merah dan paprika hijau.",
       harga: 49500,
-      fav: true,
+      fav: false,
       gambar: "images/menu/supreme.jpg"),
   PizzaHut(
       kategori: "pizza",
@@ -44,7 +44,7 @@ var PizzaHutList = [
       nama: "American Favourite",
       deskripsi: "Pepperoni sapi, daging sapi cincang, jamur.",
       harga: 49500,
-      fav: true,
+      fav: false,
       gambar: "images/menu/american-favourite.jpg"),
   PizzaHut(
       kategori: "pasta",
@@ -73,7 +73,7 @@ var PizzaHutList = [
       nama: "Meatballs Beef Mushroom",
       deskripsi: "Bola daging sapi dengan saus daging sapi cincang dan jamur.",
       harga: 40000,
-      fav: false,
+      fav: true,
       gambar: "images/menu/meatballs-beef-mushroom.jpg"),
   PizzaHut(
       kategori: "nasi",
@@ -87,7 +87,7 @@ var PizzaHutList = [
       nama: "Oriental Chicken",
       deskripsi: "Daging ayam berpadu dengan saus oriental.",
       harga: 40000,
-      fav: false,
+      fav: true,
       gambar: "images/menu/oriental-chicken.jpg"),
   PizzaHut(
       kategori: "minuman",
@@ -111,7 +111,7 @@ var PizzaHutList = [
       deskripsi:
           "At their most basic, green smoothies combine leafy greens like spinach, kale, arugula, and microgreens with a base liquid like water. ",
       harga: 24000,
-      fav: true,
+      fav: false,
       gambar: "images/menu/green-tea-shake.jpg"),
   PizzaHut(
       kategori: "minuman",
@@ -127,6 +127,6 @@ var PizzaHutList = [
       deskripsi:
           "a thoroughly shaken or blended drink made of milk, a flavoring syrup, and often ice cream a chocolate milkshake.",
       harga: 24000,
-      fav: false,
+      fav: true,
       gambar: "images/menu/chocolate-milkshake.jpg")
 ];

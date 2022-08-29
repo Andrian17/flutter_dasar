@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pizzahut_submission/all_menu_screen.dart';
+import 'package:pizzahut_submission/src/all_menu_screen.dart';
+import 'package:pizzahut_submission/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const AllMenu());
+        home: const HomeScreen());
   }
 }
