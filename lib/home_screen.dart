@@ -152,9 +152,20 @@ class HomeScreenMobile extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 2,
-                      child: Image.asset(
-                          PizzaHutList[PizzaHutList.length - 1].gambar,
-                          height: 240),
+                      child: InkWell(
+                        onTap: (() {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              final PizzaHut pizza =
+                                  PizzaHutList[PizzaHutList.length - 1];
+                              return DetailMenu(pizza: pizza);
+                            },
+                          ));
+                        }),
+                        child: Image.asset(
+                            PizzaHutList[PizzaHutList.length - 1].gambar,
+                            height: 240),
+                      ),
                     ),
                     Expanded(
                         flex: 1,
