@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pizzahut_submission/model/pizza.dart';
 
 import 'detail_menu.dart';
+import 'package:intl/intl.dart';
 
 class DetailMenuPage extends StatefulWidget {
   final PizzaHut pizza;
@@ -16,6 +17,10 @@ class DetailMenuPage extends StatefulWidget {
 class _DetailMenuPage extends State<DetailMenuPage> {
   final _scrollController = ScrollController();
   final PizzaHut pizza;
+  final formatRupiah = NumberFormat.simpleCurrency(
+    locale: 'id_ID',
+    decimalDigits: 2,
+  );
   _DetailMenuPage({Key? key, required this.pizza});
 
   @override
@@ -212,11 +217,8 @@ class _DetailMenuPage extends State<DetailMenuPage> {
                                             children: <Widget>[
                                               const Icon(Icons.money_outlined),
                                               const SizedBox(width: 8.0),
-                                              Text(
-                                                widget.pizza.harga
-                                                    .toDouble()
-                                                    .toString(),
-                                              ),
+                                              Text(formatRupiah
+                                                  .format(widget.pizza.harga)),
                                             ],
                                           ),
                                           FavoriteButton(pizza: pizza),

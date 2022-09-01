@@ -3,6 +3,7 @@ import 'package:pizzahut_submission/src/all_menu_screen.dart';
 import 'package:pizzahut_submission/model/pizza.dart';
 import 'package:pizzahut_submission/src/makanan_screen.dart';
 import 'package:pizzahut_submission/src/minuman_screen.dart';
+import 'package:intl/intl.dart';
 
 import 'src/detail_menu.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth <= 600) {
-            return const HomeScreenMobile();
+            return HomeScreenMobile();
           } else if (constraints.maxWidth <= 1200) {
             return HomeScreenPage(
               gridCount: 2,
@@ -36,7 +37,11 @@ class HomeScreen extends StatelessWidget {
 }
 
 class HomeScreenMobile extends StatelessWidget {
-  const HomeScreenMobile({Key? key}) : super(key: key);
+  final formatRupiah = NumberFormat.simpleCurrency(
+    locale: 'id_ID',
+    decimalDigits: 2,
+  );
+  HomeScreenMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +50,9 @@ class HomeScreenMobile extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
-                padding: const EdgeInsets.all(10),
+              Expanded(
+                flex: 1,
                 child: OutlinedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
@@ -60,12 +63,11 @@ class HomeScreenMobile extends StatelessWidget {
                     },
                     child: const Text(
                       "All Menu",
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(fontSize: 18),
                     )),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
-                padding: const EdgeInsets.all(10),
+              Expanded(
+                flex: 1,
                 child: OutlinedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
@@ -75,11 +77,10 @@ class HomeScreenMobile extends StatelessWidget {
                       ));
                     },
                     child:
-                        const Text("Makanan", style: TextStyle(fontSize: 22))),
+                        const Text("Makanan", style: TextStyle(fontSize: 18))),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
-                padding: const EdgeInsets.all(10),
+              Expanded(
+                flex: 1,
                 child: OutlinedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
@@ -89,7 +90,7 @@ class HomeScreenMobile extends StatelessWidget {
                       ));
                     },
                     child:
-                        const Text("Minuman", style: TextStyle(fontSize: 22))),
+                        const Text("Minuman", style: TextStyle(fontSize: 18))),
               ),
             ],
           ),
@@ -129,9 +130,10 @@ class HomeScreenMobile extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Rp. ${PizzaHutList[3].harga.toDouble()}',
+                              formatRupiah
+                                  .format(PizzaHutList[3].harga.toDouble()),
                               style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.w600),
+                                  fontSize: 16, fontWeight: FontWeight.w400),
                               textAlign: TextAlign.left,
                             ),
                           ],
@@ -179,9 +181,12 @@ class HomeScreenMobile extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Rp. ${PizzaHutList[PizzaHutList.length - 1].harga.toDouble()}',
+                              formatRupiah.format(
+                                  PizzaHutList[PizzaHutList.length - 1]
+                                      .harga
+                                      .toDouble()),
                               style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.w600),
+                                  fontSize: 18, fontWeight: FontWeight.w400),
                               textAlign: TextAlign.left,
                             ),
                           ],

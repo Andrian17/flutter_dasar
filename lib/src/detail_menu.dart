@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pizzahut_submission/model/pizza.dart';
 import 'package:pizzahut_submission/src/detail_menu_page.dart';
@@ -20,6 +21,20 @@ class DetailMenu extends StatelessWidget {
         }
       },
     );
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: const Text("Detail Menu"),
+    //   ),
+    //   body: LayoutBuilder(
+    //     builder: (context, constraints) {
+    //       if (constraints.maxWidth > 800) {
+    //         return DetailMenuPage(pizza: pizza);
+    //       } else {
+    //         return DetailMenuMobile(pizza: pizza);
+    //       }
+    //     },
+    //   ),
+    // );
   }
 }
 

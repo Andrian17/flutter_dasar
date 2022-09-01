@@ -22,9 +22,7 @@ class AllMenu extends StatelessWidget {
               return const AllMenuGrid(gridCount: 6);
             }
           },
-        )
-        // body: const AllMenuList(),
-        );
+        ));
   }
 }
 
